@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Market Price Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>📊 AI Market Price Predictor</h1>
+                <p>Intelligent pricing analysis powered by Gemini AI & Python</p>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-content">
+                            <p>👋 Hello! I'm your AI Price Prediction Assistant. I'll help you predict the market price
+                                of your products.</p>
+                            <p>Please provide the following information:</p>
+                            <ul style="margin-top: 10px; text-align: left;">
+                                <li><strong>Product Name</strong> - e.g., iPhone 13</li>
+                                <li><strong>Condition</strong> - New, Like New, Good, Fair, Poor</li>
+                                <li><strong>Usage Months</strong> - Number of months used</li>
+                                <li><strong>Warranty</strong> - Yes/No</li>
+                                <li><strong>Original Price</strong> - What you paid for it</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-section">
+                    <div class="form-group">
+                        <label for="productName">Product Name *</label>
+                        <input type="text" id="productName" placeholder="e.g., iPhone 13, MacBook Pro" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="condition">Condition *</label>
+                            <select id="condition" required>
+                                <option value="">Select condition</option>
+                                <option value="New">New</option>
+                                <option value="Like New">Like New</option>
+                                <option value="Good">Good</option>
+                                <option value="Fair">Fair</option>
+                                <option value="Poor">Poor</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="usageMonths">Usage Months *</label>
+                            <input type="number" id="usageMonths" placeholder="0" min="0" max="120" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="warranty">Warranty *</label>
+                            <select id="warranty" required>
+                                <option value="">Select warranty</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="originalPrice">Original Price ($) *</label>
+                            <input type="number" id="originalPrice" placeholder="0.00" min="0" step="0.01" required>
+                        </div>
+                    </div>
+
+                    <button id="analyzeBtn" class="analyze-btn">
+                        <span id="btnText">Analyze Price</span>
+                        <span id="btnLoader" style="display: none;">⏳ Analyzing...</span>
+                    </button>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="info-card">
+                    <h3>📈 How It Works</h3>
+                    <p>Our Python-powered AI analyzes market data, product conditions, and depreciation patterns to
+                        predict the current market value of your product using Gemini API.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>🎯 Factors Considered</h3>
+                    <ul>
+                        <li>Product condition</li>
+                        <li>Time of use</li>
+                        <li>Warranty status</li>
+                        <li>Market demand</li>
+                        <li>Depreciation rate</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h3>💡 Tips</h3>
+                    <p>Be accurate with your input for better predictions. Market prices vary based on condition and
+                        current demand.</p>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
