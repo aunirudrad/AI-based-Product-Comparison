@@ -14,7 +14,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Configure Gemini API
-GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', 'AIzaSyChg5T0MSyD_FFFlUgpwB4Q2CnVj8wE9S8')
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', 'your-gemini-api-key')
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Product database for market reference
